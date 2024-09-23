@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Hello Page</title>
 </head>
 <body>
@@ -9,3 +8,7 @@
 <h1 th:text="${message}"></h1>
 </body>
 </html>
+
+
+<!--th:text="${message}" : Thymeleaf 标签，用于动态绑定控制器中传递的数据；-->
+<!--message 是从 HelloController 传递到页面的模型数据-->

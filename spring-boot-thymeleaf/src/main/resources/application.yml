@@ -1,8 +1,20 @@
-logging:
-  level:
-    root: debug
-    top.xym.spring.thymeleaf: debug
+#logging:
+#  level:
+#    root: info
+#    top.xym.springbootlogging.controller: debug
+#  file:
+#    path: ./logs
+#    name: ./logs/springboot.log
+#  logback:
+#    rolling policy:
+#      max-file-size: 10MB
+#      max-history: 10
+#  pattern:
+#    console: '%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{10}) - %cyan(%msg%n)'
+#    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger : %msg%n'
+##
+#spring:
+#  thymeleaf:
+#    cache: false # 禁用 Thymeleaf 缓存，以确保每次请求都加载最新的模板文件
 
-spring:
-  thymeleaf:
-    cache: false # 禁用 Thymeleaf 缓存
+

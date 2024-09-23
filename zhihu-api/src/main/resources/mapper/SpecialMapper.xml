@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.xym.zhihu.api.mapper.SpecialMapper">
+    <select id="selectAll" resultType="top.xym.zhihu.api.entity.Special">
+        SELECT *
+        FROM `list (2)`
+        ORDER BY updated DESC
+    </select>
+
+    <select id="selectByPage" resultType="top.xym.zhihu.api.entity.Special">
+        SELECT *
+        FROM `list (2)`
+        ORDER BY updated DESC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+</mapper>
+
+<!--        这是一个MyBatis的XML映射文件片段，主要用于数据库操作。它属于SpecialMapper接口，用于处理与special数据表相关的查询。-->
+
+<!--<select id="selectAll": 定义了一个SQL查询方法，方法名为selectAll，其功能是从数据库中选择所有列，并按照更新时间updated降序排序，结果返回类型是top.xym.zhihu.api.entity.Special对象。-->
+
+<!--<select id="selectByPage": 另一个查询方法，用于分页获取数据。它也从list (2)表中选择所有列，按更新时间排序，但是使用了LIMIT和OFFSET关键字来进行偏移量和每页记录数的限制。其中#{limit}和#{offset}是参数占位符，表示传入的实际分页参数。-->
+
+<!--        这两个方法都是MyBatis中常见的用于数据检索的映射配置，通过它们，开发者可以在编写业务逻辑代码时直接调用这些预定义的方法，而无需关心底层的SQL语句。-->
