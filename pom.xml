@@ -19,7 +19,6 @@
         <module>spring-boot-thymeleaf</module>
         <module>zhihu-api</module>
         <module>spring-boot-config</module>
-        <module>spring-boot-configure</module>
     </modules>
 
     <properties>
