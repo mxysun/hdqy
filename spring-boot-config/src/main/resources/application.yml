@@ -1,0 +1,78 @@
+#family:
+#  family-name: "happy family"
+#  father: ${father.name:zhangsan}
+#  mother: "Rose"
+#  child: "Tom"
+#  age: ${random.int(4,10)}
+#
+#father:
+#  name: "Jack"
+#
+#spring:
+#  config:
+#    import: classpath:/external/config.yml
+
+
+
+
+person:
+  first-name: "${first.name:John}"
+  last-name: "${last.name:Doe}"
+  age: "${random.int(20,50)}"
+  id: "${random.uuid}"
+  phone: "${phone.number:1234567890}"
+
+first:
+  name: miao
+last:
+  name: xinyu
+
+student:
+  name: 张小飞
+  age: 20
+  happy: true
+  birth: 2024/01/01
+  map: {k1: v1,k2: v2}
+  list:
+    - code
+    - read
+    - music
+  dog:
+    name: 虎子
+    age: 11
+
+
+db:
+  url: jdbc:mysql://localhost:6033/spring_boot?useSSL=false&serverTimezone=UTC
+  username: root
+  password: 123456
+  driver-class-name: com.mysql.cj.jdbc.Driver
+
+jwt:
+  secret: mySecretKey # JWT 密钥
+  expiration: 3600000 # 1小时 单位为毫秒
+
+aliyun:
+  oss:
+    endpoint: https://oss-cn-nanjing.aliyuncs.com # OSS服务地址，根据地区修改
+    accessKeyId: LTAI5tCgQ4eJmHsusYXS5D2K # Access Key Id
+    accessKeySecret: rcJ6Y7LjbwIycSX5jyiL105WZgBrD7  # Access Key Secret
+    bucketName: mxy-u  # Bucket名称
+
+
+custom:
+  qrcode:
+    content: "https://www.baidu.com" # 二维码内容
+  log:
+    level: "Info"
+  backup:
+    location: \Downloads\houduan\qiyehd2.0\demo2\log\backup.log
+#
+#spring:
+#  mail:
+#    host: smtp.qq.com
+#    username: 1286280961@qq.com
+#    password: ypnjcepefhbpigjh
+#    properties:
+#      mail.smtp.auth: true
+#      mail.smtp.starttls.enable: true
