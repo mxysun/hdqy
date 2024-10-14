@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>top.xym</groupId>
+        <artifactId>spring-boot-practice</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>spring-boot-database</artifactId>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- mysql-connector-j依赖项 -->
+        <dependency>
+            <!-- 表示该依赖项所属的组织或团体是 MySQL -->
+            <groupId>com.mysql</groupId>
+            <!-- 明确了具体的库名称是 MySQL 的 Java 数据库连接驱动 -->
+            <artifactId>mysql-connector-j</artifactId>
+            <!-- 驱动的版本号 -->
+            <version>8.3.0</version>
+        </dependency>
+
+        <!-- spring-boot-starter-data-jpa依赖项 -->
+        <dependency>
+            <!-- 表明该依赖来自 Spring Boot 项目 -->
+            <groupId>org.springframework.boot</groupId>
+            <!-- 这个依赖项是 Spring Boot 中用于简化 Java Persistence API（JPA）开发的启动器。
+            它提供了与数据库交互的便捷方式，包括实体类的映射、数据库事务管理等功能。-->
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

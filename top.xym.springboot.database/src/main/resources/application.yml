@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:6033/spring_boot?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+    show-sql: true
+
+mybatis:
+  # 指定响应接口对应的xml文件所在目录（指定XML映射文件的位置）
+  mapper-locations: classpath:mapper/*.xml
+  # 指定类所在包  即在执行SQL查询时，Mybatis会使用这个包内的类去自动匹配结果集。
+  type-aliases-package: top.xym.springboot.database.entity
+  configuration:
+    # mybatis开启驼峰式命名
+    map-underscore-to-camel-case: true
+    # 控制台打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

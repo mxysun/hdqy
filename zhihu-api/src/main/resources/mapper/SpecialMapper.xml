@@ -3,13 +3,13 @@
 <mapper namespace="top.xym.zhihu.api.mapper.SpecialMapper">
     <select id="selectAll" resultType="top.xym.zhihu.api.entity.Special">
         SELECT *
-        FROM `list (2)`
+        FROM list
         ORDER BY updated DESC
     </select>
 
     <select id="selectByPage" resultType="top.xym.zhihu.api.entity.Special">
         SELECT *
-        FROM `list (2)`
+        FROM list
         ORDER BY updated DESC
         LIMIT #{limit} OFFSET #{offset}
     </select>

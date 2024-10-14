@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    # 连接的是本地（127.0.0.1）的 MySQL 数据库，端口号为6033，数据库名。指定链接属性：使用 Unicode 编码、字符编码为 UTF-8 以及不使用 SSL 连接
+    url: jdbc:mysql://127.0.0.1:6033/spring_boot2?useUnicode=ture&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    # 指定 MySQL 数据库的 JDBC 驱动类名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    # 这个属性用于控制 Hibernate 在启动时对数据库模式（schema）的操作。
+    properties:
+      hibernate:
+        hbm2ddl:
+          # 这在开发过程中很方便，但在生产环境中需要谨慎使用，以免意外的数据丢失。
+          auto: update # 自动创建、更新、验证数据库表结构
+    # 设置为true表示在控制台输出 Hibernate 生成的 SQL 语句，这对于调试和了解应用程序与数据库的交互非常有帮助。
+    show-sql: true

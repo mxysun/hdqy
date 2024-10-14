@@ -19,6 +19,11 @@
         <module>spring-boot-thymeleaf</module>
         <module>zhihu-api</module>
         <module>spring-boot-config</module>
+        <module>top.xym.springboot.database</module>
+        <module>spring-boot-database</module>
+        <module>wenda</module>
+        <module>spring-boot-mp</module>
+
     </modules>
 
     <properties>
