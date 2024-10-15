@@ -23,6 +23,7 @@
         <module>spring-boot-database</module>
         <module>wenda</module>
         <module>spring-boot-mp</module>
+        <module>spring-boot-exception</module>
 
     </modules>
 
