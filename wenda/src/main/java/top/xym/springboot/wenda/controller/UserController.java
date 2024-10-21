@@ -38,4 +38,9 @@ public class UserController {
     public Result register(@RequestBody User user) {
         return userService.register(user);
     }
+
+    @GetMapping("/{userId}")
+    public User getUserByArticleUserId(@PathVariable Integer userId) {
+        return userService.findUserByUserId(userId);
+    }
 }

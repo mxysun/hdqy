@@ -11,4 +11,28 @@
         SELECT u.* FROM user u
         WHERE u.account = #{account}
     </select>
+
+    <!-- 根据用户id查询用户信息？ 一对多关联查询 -->
+<!--    <resultMap id="userMap" type="User">-->
+<!--        <id column="user_id" property="userId" jdbcType="INTEGER"/>-->
+<!--        <result column="account" property="account" jdbcType="VARCHAR"/>-->
+<!--        <collection property="articles" ofType="Articles">-->
+<!--            <id column="article_id" property="articleId"/>-->
+<!--            <result column="content" property="content"/>-->
+<!--            <result column="publish_time" property="publishTime"/>-->
+<!--            <result column="like_count" property="likeCount"/>-->
+<!--            <result column="collect_count" property="collectCount"/>-->
+<!--        </collection>-->
+<!--    </resultMap>-->
+
+<!--    <select id="getUserOneToMany" resultMap="userMap">-->
+<!--        SELECT u.user_id, u.account, a.article_id, a.content, a.publish_time, a.like_count, a.collect_count-->
+<!--        FROM user u,-->
+<!--             articles a-->
+<!--        WHERE u.user_id = #{userId}-->
+<!--          AND u.user_id = a.user_id-->
+<!--    </select>-->
+    <select id="findUserById" resultType="top.xym.springboot.wenda.entity.User">
+        SELECT * FROM user WHERE user_id = #{userId}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package top.xym.springboot.wenda.service.impl;
 
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.xym.springboot.wenda.entity.Result;
 import top.xym.springboot.wenda.entity.User;
@@ -17,6 +18,7 @@ import java.util.Objects;
 public class UserServiceImpl implements UserService {
 
     @Resource
+    @Autowired
     private UserMapper userMapper;
 
     /**
@@ -74,5 +76,9 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public User findUserByUserId(Integer userId) {
+        return userMapper.findUserById(userId);
+    }
 
 }

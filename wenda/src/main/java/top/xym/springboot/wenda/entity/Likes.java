@@ -10,6 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class Likes {
     private Integer likeId;
+    private Integer articleId;
     private Integer userId;
     private Data likeTime;
 }

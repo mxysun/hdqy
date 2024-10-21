@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.xym.springboot.wenda.mapper.ArticlesMapper">
+    <insert id="insert" parameterType="Articles">
+        INSERT INTO articles (article_id, user_id, title, content, publish_time, like_count, collect_count)
+        VALUES (#{articleId}, #{userId}, #{title}, #{content}, #{publishTime}, #{likeCount}, #{collectCount})
+    </insert>
+
+    <select id="findArticleById" resultType="Articles">
+        SELECT *
+        FROM articles
+        WHERE article_id = #{articleId}
+    </select>
+
+    <update id="updateById" parameterType="Articles">
+        UPDATE articles
+        <set>
+            <if test="articleId != null">
+                article_id = #{articleId},
+            </if>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="content != null">
+                content = #{content},
+            </if>
+            <if test="publishTime != null">
+                publish_time = #{publishTime},
+            </if>
+            <if test="likeCount != null">
+                like_count = #{likeCount},
+            </if>
+            <if test="collectCount != null">
+                collect_count = #{collectCount},
+            </if>
+        </set>
+        WHERE article_id = #{articleId}
+    </update>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM articles
+        WHERE article_id = #{articleId}
+    </delete>
+
+
+
+</mapper>

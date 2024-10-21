@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.xym.springboot.wenda.mapper.CommentMapper">
+
+<!--    <resultMap id="commentResultMap" type="top.xym.springboot.wenda.model.Comment">-->
+<!--        <id property="commentId" column="comment_id" />-->
+<!--        <result property="articleId" column="article_id" />-->
+<!--        <result property="userId" column="user_id" />-->
+<!--        <result property="commentContent" column="comment_content" />-->
+<!--        <result property="commentTime" column="comment_time" javaType="java.util.Date" jdbcType="TIMESTAMP" typeHandler="org.apache.ibatis.type.DateTypeHandler"/>-->
+<!--    </resultMap>-->
+
+    <!--插入评论-->
+    <insert id="insertComment" parameterType="top.xym.springboot.wenda.entity.Comments">
+        INSERT INTO comments (article_id, user_id, comment_content, comment_time)
+        VALUES (#{articleId}, #{userId}, #{commentContent}, #{commentTime})
+    </insert>
+
+    <!--根据文章 id 查询评论-->
+    <select id="selectCommentsByArticleId" parameterType="int" resultType="top.xym.springboot.wenda.entity.Comments">
+        SELECT * FROM comments WHERE article_id = #{articleId}
+    </select>
+
+    <!--删除评论-->
+    <delete id="deleteCommentById" parameterType="java.lang.Integer">
+        DELETE FROM comments WHERE comment_id = #{commentId}
+    </delete>
+
+    <!--更新评论内容-->
+    <update id="updateCommentContent" parameterType="map">
+        UPDATE comments SET comment_content = #{newContent} WHERE comment_id = #{commentId}
+    </update>
+
+</mapper>

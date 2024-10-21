@@ -24,6 +24,9 @@
         <module>wenda</module>
         <module>spring-boot-mp</module>
         <module>spring-boot-exception</module>
+        <module>Mybatis-plus</module>
+        <module>spring-boot-redis</module>
+        <module>spring-boot-r</module>
 
     </modules>
 
