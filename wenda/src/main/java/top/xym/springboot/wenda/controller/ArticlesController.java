@@ -39,11 +39,11 @@ package top.xym.springboot.wenda.controller;
 //}
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import top.xym.springboot.wenda.entity.Articles;
+import top.xym.springboot.wenda.mapper.ArticlesMapper;
 import top.xym.springboot.wenda.repository.ArticlesRepository;
 import top.xym.springboot.wenda.service.ArticlesService;
 
@@ -57,6 +57,20 @@ public class ArticlesController {
     @Autowired
     private ArticlesRepository articlesRepository;
 
+    @Autowired
+    private ArticlesMapper articlesMapper;
+
+    @PostMapping("/addarticles")
+    public int addArticle(@RequestBody Articles article) {
+        System.out.println("Received article: " + article);
+        return articlesService.addArticle(article);
+    }
+
+    @DeleteMapping("/articles/{articleId}")
+    public void deleteArticle(@PathVariable Integer articleId) {
+        articlesMapper.deleteById(articleId);
+    }
+
     @GetMapping("/list")
     public List<Articles> getArticlesList() {
         return articlesService.getAllArticles();
@@ -65,6 +79,41 @@ public class ArticlesController {
     @GetMapping("/detail/{articleId}")
     public Articles getArticlesDetail(@PathVariable Long articleId) {
         return articlesRepository.findById(articleId).orElse(null);
+    }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Articles>> getArticlesByUserId(@PathVariable Integer userId) {
+        List<Articles> articles = articlesService.getArticlesByUserId(userId);
+        if (articles != null) {
+            return ResponseEntity.ok(articles);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    // 判断文章是否被收藏
+    @GetMapping("/isCollected/{articleId}/{userId}")
+    public boolean isArticleCollected(@PathVariable Integer articleId, @PathVariable Integer userId) {
+        return articlesService.isArticleCollected(userId, articleId);
+    }
+
+    // 收藏文章
+    @PostMapping("/collect/{articleId}/{userId}")
+    public void collectArticle(@PathVariable Integer articleId, @PathVariable Integer userId) {
+        articlesService.addArticleToCollection(userId, articleId);
+    }
+
+    // 取消收藏
+    @DeleteMapping("/uncollect/{articleId}/{userId}")
+    public void uncollectArticle(@PathVariable Integer articleId, @PathVariable Integer userId) {
+        articlesService.removeArticleFromCollection(userId, articleId);
+    }
+
+    // 分页
+    @GetMapping("/articles/list/page")
+    public ResponseEntity<Page<Articles>> getArticlesByPage(@RequestParam int pageNumber, @RequestParam int pageSize) {
+        Page<Articles> articlesPage = articlesService.getArticlesByPage(pageNumber, pageSize);
+        return ResponseEntity.ok(articlesPage);
     }
 
 }

@@ -7,3 +7,5 @@
 - spring-boot-config: 配置管理模块
 - top: 数据库模块
 - spring-boot-mp: Mybatis Plus模块
+- spring-boot-redis: Redis模块
+- spring-boot-task: 

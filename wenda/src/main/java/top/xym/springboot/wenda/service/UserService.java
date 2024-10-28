@@ -17,4 +17,9 @@ public interface UserService {
 
     User findUserByUserId(Integer userId);
 
+    // 插入用户
+    int insertUser(User user);
+
+    // 更新用户头像路径
+    int updateAvatarById(Integer userId, String avatarPath);
 }

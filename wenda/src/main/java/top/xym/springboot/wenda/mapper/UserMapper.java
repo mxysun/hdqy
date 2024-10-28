@@ -2,6 +2,8 @@ package top.xym.springboot.wenda.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.xym.springboot.wenda.entity.User;
@@ -27,5 +29,17 @@ public interface UserMapper {
 
     // 根据用户id查询用户信息的方法
     User findUserById(Integer userId);
+
+    // 获取最后插入记录的自增ID
+    // 注解方式获取最后插入ID
+    @Select("SELECT LAST_INSERT_ID()")
+    Integer getLastInsertId();
+
+    // 插入用户
+    int insertUser(User user);
+
+    // 更新用户头像路径
+    @Update("UPDATE user SET avatar = #{avatarPath} WHERE user_id = #{userId}")
+    int updateAvatarById(Integer userId, String avatarPath);
 
 }

@@ -2,15 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.xym.springboot.wenda.mapper.UserMapper">
 
-    <insert id="save">
-        INSERT INTO user (account, password)
-        VALUES (#{account}, #{password})
+<!--    使用 useGeneratedKeys 和 keyProperty 来自动填充自增ID-->
+    <insert id="save" parameterType="top.xym.springboot.wenda.entity.User" useGeneratedKeys="true" keyProperty="userId" >
+        INSERT INTO user (username, account, password)
+        VALUES (#{userName}, #{account}, #{password})
     </insert>
 
     <select id="getUser" resultType="top.xym.springboot.wenda.entity.User">
         SELECT u.* FROM user u
         WHERE u.account = #{account}
     </select>
+
+
 
     <!-- 根据用户id查询用户信息？ 一对多关联查询 -->
 <!--    <resultMap id="userMap" type="User">-->
@@ -35,4 +38,6 @@
     <select id="findUserById" resultType="top.xym.springboot.wenda.entity.User">
         SELECT * FROM user WHERE user_id = #{userId}
     </select>
+
+
 </mapper>

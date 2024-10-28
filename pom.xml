@@ -27,6 +27,7 @@
         <module>Mybatis-plus</module>
         <module>spring-boot-redis</module>
         <module>spring-boot-r</module>
+        <module>spring-boot-task</module>
 
     </modules>
 

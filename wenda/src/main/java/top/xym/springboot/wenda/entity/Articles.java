@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -28,6 +29,8 @@ public class Articles {
     private Integer userId;
     private String title;
     private String content;
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime publishTime;
     private Integer likeCount;
     private Integer collectCount;
