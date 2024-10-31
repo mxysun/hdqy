@@ -28,6 +28,7 @@
         <module>spring-boot-redis</module>
         <module>spring-boot-r</module>
         <module>spring-boot-task</module>
+        <module>spring-boot-file</module>
 
     </modules>
 
@@ -61,9 +62,7 @@
             <scope>test</scope>
         </dependency>
 
-
     </dependencies>
-
 
     <build>
         <finalName>app</finalName>
